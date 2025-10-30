@@ -32,6 +32,10 @@ pip install -r requirements.txt
 ```
 
 ### 运行脚本
+
+windows：
+双击 启动媒体收集器.bat 即可运行程序。
+
 ```bash
 # 使用默认配置运行
 python media_collector.py
@@ -52,21 +56,6 @@ python media_collector.py --source-dir "/path/to/media" --output-dir "/path/to/o
 - 🎨 Obsidian集成设置
 - 📝 日志配置
 
-## 🐛 最近修复的问题
-
-### ✅ 已解决的问题
-1. **关键词页面显示问题** - 修复了关键词页面显示"Dataview: No results"的问题
-2. **评分格式统一** - 修复了ranks目录下生成重复文件（2.md和2.0.md）的问题
-3. **预告片大小过滤** - 添加了小于500KB的预告片文件自动过滤功能
-4. **日志文件控制** - 添加了可配置的日志文件生成开关
-5. **封面显示优化** - 修复了没有封面时显示"No Cover"占位符的问题
-6. **年份页面修复** - 修复了years文件夹下页面显示"Dataview: No results"的问题
-
-### 🔧 技术改进
-- 统一评分为一位小数格式
-- 改进NFO文件解析的容错性
-- 优化Dataview查询逻辑
-- 增强错误处理和日志记录
 
 ## 📁 项目结构
 
@@ -146,8 +135,8 @@ media-collector/
 ```yaml
 paths:
   source_directories:
-    - "./media/source"        # 媒体文件源目录
-  output_directory: "media/films"   # Markdown输出目录
+    - "./jav_store/source"        # 媒体文件源目录
+  output_directory: "jav_store/films"   # Markdown输出目录
 ```
 
 ### 🔍 文件匹配规则
@@ -158,28 +147,6 @@ file_patterns:
     - "([A-Z]{2,}\\d{3,})"   # 紧凑格式: ABP408
     - "(FC2-\\d{7})"         # FC2格式: FC2-1234567
     - "(T-[A-Z0-9]+)"        # Tokyo Hot格式
-```
-
-### 📊 高级配置
-```yaml
-# 日志控制
-advanced:
-  logging:
-    enable_file_logging: false  # 是否生成日志文件
-    log_file_path: "media_collector.log"
-
-# 文件大小限制
-  file_size_limits:
-    min_trailer_size: 512000    # 最小预告片文件大小(字节)
-
-# Obsidian集成
-obsidian:
-  category_pages:
-    actors: true     # 生成演员页面
-    keywords: true   # 生成关键词页面
-    series: true     # 生成系列页面
-    years: true      # 生成年份页面
-    ranks: true      # 生成评分页面
 ```
 
 ## 🔧 故障排除
@@ -198,16 +165,3 @@ python media_collector.py --log-level DEBUG
 # 指定配置文件
 python media_collector.py --config debug_config.yaml
 ```
-
-## 🤝 贡献
-
-欢迎提交Issue和Pull Request来改进这个项目！
-
-### 开发环境
-- Python 3.7+
-- 支持Windows/Linux/macOS
-- 建议使用虚拟环境
-
-## 📄 许可证
-
-本项目采用MIT许可证，详见LICENSE文件。
