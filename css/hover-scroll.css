@@ -1,0 +1,324 @@
+/* === 普通鼠标悬停预览（非 Hover Editor）=== */
+body:not(.is-mobile) .popover.hover-popover{
+  /* 想要的基准尺寸 */
+  width: 450px;    /* 增加到1000px */
+  height: 400px;    /* 增加到650px */
+  /* 同时受窗口限制，避免出屏 */
+  max-width: 95vw !important;
+  max-height: 92vh !important;
+}
+
+/* 预览内容占满并可滚动 */
+body .popover.hover-popover .view-content,
+body .popover.hover-popover .markdown-reading-view{
+  height: 100% !important;
+  overflow: auto !important;
+}
+
+/* === Hover Editor 的悬浮窗（有标题栏的那种）=== */
+body .workspace-leaf.mod-popover,
+body .hover-editor{
+  width: 1600px !important;    /* 你也可以用 1920×1080 */
+  height: 900px !important;
+  max-width: 95vw !important;
+  max-height: 92vh !important;
+}
+
+/* Hover Editor 内容可滚动 */
+body .workspace-leaf.mod-popover .view-content,
+body .hover-editor .view-content{
+  height: 100% !important;
+  overflow: auto !important;
+}
+
+/* Dataview 表格里的关键词徽章 */
+.kw-badges .kw {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0 6px 6px 0;
+  border-radius: 999px;
+  background: var(--background-secondary);
+  line-height: 1.6;
+}
+.kw-badges .kw a.internal-link { text-decoration: none; }
+
+/* dataviewjs卡片栏目字符数量限制 */
+.cards table.dataview tbody>tr>td>* {
+    padding: calc(var(--cards-padding)/3) 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* === 优化悬浮窗中的表格布局 === */
+
+/* 悬浮窗内容容器优化 */
+body:not(.is-mobile) .popover.hover-popover .markdown-preview-view {
+    padding: 12px !important;   /* 从20px减少到12px */
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* 悬浮窗中的表格横向填满 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table {
+    width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+}
+
+/* 表格单元格横向填满，关键词列自适应 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table th,
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td {
+    padding: 8px 12px !important;
+    text-align: left !important;
+    vertical-align: top !important;
+    border: none !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* 固定列宽度设置 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table th:first-child,
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:first-child { /* Cover */
+    width: 120px !important;
+    text-align: center !important;
+}
+
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table th:nth-child(2),
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:nth-child(2) { /* CN */
+    width: 180px !important;
+}
+
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table th:nth-child(3),
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:nth-child(3) { /* JP */
+    width: 180px !important;
+}
+
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table th:nth-child(4),
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:nth-child(4) { /* Code */
+    width: 120px !important;
+}
+
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table th:nth-child(5),
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:nth-child(5) { /* Actor */
+    width: 140px !important;
+}
+
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table th:nth-child(6),
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:nth-child(6) { /* Year */
+    width: 80px !important;
+}
+
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table th:nth-child(7),
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:nth-child(7) { /* Time */
+    width: 80px !important;
+}
+
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table th:nth-child(8),
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:nth-child(8) { /* Rank */
+    width: 80px !important;
+}
+
+/* 关键词列自适应剩余空间 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table th:last-child,
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:last-child { /* Keywords */
+    width: auto !important;
+    min-width: 350px !important;
+    max-width: 500px !important;
+}
+
+/* 关键词徽章容器横向填满 */
+body:not(.is-mobile) .popover.hover-popover .kw-badges {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 4px 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 确保表格单元格内容不溢出 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:last-child {
+    overflow: visible !important;
+    text-overflow: unset !important;
+    white-space: normal !important;
+    padding: 8px 12px !important;
+    vertical-align: top !important;
+}
+
+/* 关键词徽章样式优化 */
+body:not(.is-mobile) .popover.hover-popover .kw-badges .kw {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 6px 12px !important;
+    margin: 0 !important;
+    border-radius: 14px !important;
+    background: var(--tag-background, var(--background-modifier-hover)) !important;
+    color: var(--tag-color, var(--text-normal)) !important;
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    font-weight: 500 !important;
+    border: 1px solid var(--tag-border, var(--background-modifier-border)) !important;
+    flex-shrink: 0 !important;
+    max-width: fit-content !important;
+    min-height: 28px !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+}
+
+/* 关键词徽章悬停效果 */
+body:not(.is-mobile) .popover.hover-popover .kw-badges .kw:hover {
+    background: var(--interactive-accent) !important;
+    color: var(--text-on-accent) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+}
+
+/* 关键词链接样式 */
+body:not(.is-mobile) .popover.hover-popover .kw-badges .kw a.internal-link {
+    color: inherit !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: inherit !important;
+}
+
+/* 关键词链接悬停效果 */
+body:not(.is-mobile) .popover.hover-popover .kw-badges .kw a.internal-link:hover {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+/* 表格行悬停效果 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table tbody tr:hover {
+    background-color: var(--background-modifier-hover) !important;
+}
+
+/* 表头样式 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table thead th {
+    background-color: var(--background-secondary) !important;
+    font-weight: 600 !important;
+    color: var(--text-muted) !important;
+    border-bottom: 2px solid var(--background-modifier-border) !important;
+}
+
+/* 强制表格填满悬浮窗宽度 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table {
+    table-layout: fixed !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+}
+
+/* 关键词列强制填满剩余空间 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:last-child .kw-badges {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-content: flex-start !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    gap: 6px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 防止关键词换行导致的布局问题 */
+body:not(.is-mobile) .popover.hover-popover .kw-badges .kw {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+}
+
+/* 文本截断优化 - 关键词列不截断 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+}
+
+/* 标题列保持截断 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:nth-child(2),
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td:nth-child(3) {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* 封面图片优化 */
+body:not(.is-mobile) .popover.hover-popover .myTableImg {
+    width: 100px !important;
+    height: 210px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+}
+
+/* No Cover 占位符样式 - 增强优先级 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td .no-cover-placeholder,
+body:not(.is-mobile) .popover.hover-popover .no-cover-placeholder {
+    width: 100px !important;
+    height: 210px !important;
+    border-radius: 8px !important;
+    background: var(--background-secondary) !important;
+    border: 2px dashed var(--text-muted) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+}
+
+/* No Cover 文本样式 - 增强优先级 */
+body:not(.is-mobile) .popover.hover-popover .dataview.table-view-table td .no-cover-text,
+body:not(.is-mobile) .popover.hover-popover .no-cover-text {
+    color: var(--text-muted) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    opacity: 0.8 !important;
+    user-select: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* 通用占位符样式 - 最高优先级 */
+.no-cover-placeholder {
+    width: 100px !important;
+    height: 210px !important;
+    border-radius: 8px !important;
+    background: var(--background-secondary) !important;
+    border: 2px dashed var(--text-muted) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+}
+
+.no-cover-text {
+    color: var(--text-muted) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    opacity: 0.8 !important;
+    user-select: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}

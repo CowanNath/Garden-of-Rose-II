@@ -1,0 +1,149 @@
+# 媒体收集器配置文件
+
+# 路径配置
+paths:
+  # 媒体文件源目录（可配置多个目录）
+  source_directories:
+    - "./jav_store/source"
+
+  # Markdown输出目录
+  output_directory: "jav_store/films"
+
+# 文件匹配规则
+file_patterns:
+  # 支持的番号格式
+  code_patterns:
+    - "([A-Z]+-\\d+)"
+    - "([A-Z]{2,}\\d{3,})"
+    - "(FC2-\\d{7})"
+    - "(T-[A-Z0-9]+)"
+
+  # 支持的文件扩展名
+  video_extensions: [".mp4", ".mkv", ".avi", ".mov", ".wmv"]
+  image_extensions: [".jpg", ".jpeg", ".png", ".webp", ".bmp", ".gif"]
+  nfo_extensions: [".nfo"]
+
+  # 文件名关键词
+  poster_keywords: ["poster", "cover", "thumb"]
+  fanart_keywords: ["fanart", "backdrop", "background"]
+  trailer_keywords: ["trailer", "preview", "sample"]
+
+# 过滤设置
+filtering:
+  # 最小文件大小 (字节)
+  min_file_size: 10485760  # 100MB
+
+  # 排除的文件模式
+  exclude_patterns:
+    - "sample"
+    - "trailer"
+    - "preview"
+    - "temp"
+    - ".tmp"
+
+# Markdown生成设置
+markdown:
+  # 代码链接模式
+  links:
+    # 路径模式选项:
+    # "absolute" - 绝对路径 (如: D:\Videos\film.mp4)
+    # "relative" - 相对路径 (如: ../videos/film.mp4)
+    # "filename" - 仅文件名 (如: film.mp4)
+    # "shareable" - 可分享路径 (如: /videos/film.mp4)
+    path_mode: "absolute"
+
+    # 链接样式选项:
+    # "fileurl" - 文件URL格式 (如: file:///D:/Videos/film.mp4)
+    # "markdown" - 标准Markdown链接 (如: [film](D:/Videos/film.mp4))
+    # "wiki" - Wiki链接格式 (如: [[film|D:/Videos/film.mp4]])
+    # "obsidian" - Obsidian专用链接格式
+    # "plain" - 纯文本路径 (如: D:/Videos/film.mp4)
+    # "html" - HTML链接格式 (如: <a href="file:///D:/Videos/film.mp4">film</a>)
+    link_style: "fileurl"
+
+  # 是否生成统计信息
+  include_stats: true
+
+  # 是否生成目录索引
+  generate_index: false
+
+# 标签设置
+tags:
+  # 自动生成的标签
+  auto_tags:
+    - "媒体收集"
+    - "番号"
+
+  # 文件大小标签
+  size_tags:
+    large: "1GB"
+    medium: "500MB"
+    small: "100MB"
+
+# Obsidian集成设置
+obsidian:
+  # 生成CSS样式
+  include_css: true
+
+  # 生成双向链接
+  include_backlinks: true
+
+  # 使用Wiki链接格式
+  wiki_links: true
+
+  # 分类页面设置
+  category_pages:
+    actors: true
+    keywords: true
+    series: true
+    years: true
+    ranks: true
+
+
+# 日志设置
+advanced:
+  # 系统日志级别 (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  log_level: "INFO"
+
+  # 日志文件设置
+  logging:
+    # 是否生成日志文件
+    enable_file_logging: false
+    # 日志文件路径
+    log_file_path: "media_collector.log"
+
+  # 线程数量 (用于并行处理)
+  max_workers: 4
+
+  # 文件大小设置
+  file_size_limits:
+    # Trailer文件最小大小（字节），小于此值将不显示trailer模块
+    min_trailer_size: 512000  # 500KB = 512000字节
+
+  # 缓存设置
+  cache:
+    enabled: true
+    max_size: 1000
+    ttl: 3600  # 缓存生存时间(秒)
+
+  # 重试设置
+  retry:
+    max_attempts: 3
+    delay: 1.0  # 重试延迟(秒)
+
+# Python 运行时设置
+python:
+  # 禁止生成字节码缓存文件
+  dont_write_bytecode: true
+
+  # Python 路径设置
+  python_path:
+    - "."
+    - "./src"
+
+  # 性能优化
+  optimization:
+    # 启用解释器优化
+    optimize: false
+    # 启用断言检查
+    assertions: true

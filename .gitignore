@@ -1,0 +1,117 @@
+# Python 字节码缓存
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 分发 / 打包
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# 单元测试 / 覆盖率报告
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# 环境
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Obsidian 和 Claude 相关
+.obsidian/
+.claude/
+CLAUDE.md
+
+# 操作系统
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 日志文件
+*.log
+logs/
+media_collector.log
+
+# 临时文件
+*.tmp
+*.temp
+temp/
+
+# 项目特定文件
+# 本地配置文件（包含敏感信息）
+config_local.yaml
+config_local.yml
+secrets.yaml
+secrets.yml
+
+# 生成的媒体文件缓存
+jav_store/cache/
+
+# jav_store 目录处理：保留文件夹结构，忽略所有文件内容
+# 但保留目录本身和README文件（如果有的话）
+jav_store/films/*
+jav_store/actor/*
+jav_store/keywords/*
+jav_store/series/*
+jav_store/years/*
+jav_store/ranks/*
+jav_store/source/*
+!jav_store/films/.gitkeep
+!jav_store/actor/.gitkeep
+!jav_store/keywords/.gitkeep
+!jav_store/series/.gitkeep
+!jav_store/years/.gitkeep
+!jav_store/ranks/.gitkeep
+!jav_store/source/.gitkeep
+!jav_store/films/README.md
+!jav_store/actor/README.md
+!jav_store/keywords/README.md
+!jav_store/series/README.md
+!jav_store/years/README.md
+!jav_store/ranks/README.md
+!jav_store/source/README.md
+
+# 备份文件
+*.bak
+*.backup

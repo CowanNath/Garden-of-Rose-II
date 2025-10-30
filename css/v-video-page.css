@@ -1,0 +1,100 @@
+/* 放宽行宽，给封面和九宫格更多空间 */
+.markdown-reading-view.film-page { --file-line-width: 2000px; }
+
+/* 信息卡 */
+.film-page .film-info--top{
+  background: var(--background-secondary);
+  border-radius: 14px;
+  box-shadow: var(--shadow-s);
+  padding: 14px 18px;
+  margin: 4px 0 20px;
+}
+.film-page .sec-title{ margin:0 0 12px; font-weight:800; color:var(--text-accent); }
+.film-page .info-list{ list-style:none; margin:0; padding:0; }
+.film-page .info-list li{
+  display:flex; gap:12px; align-items:baseline;
+  padding:12px 0; border-bottom:1px solid var(--background-modifier-border);
+}
+.film-page .info-list li:last-child{ border-bottom:none; }
+.film-page .info-list .k{ width:110px; color:var(--text-muted); }
+.film-page .info-list .v{ font-weight:700; }
+
+/* 统一的“浮起”徽章：chip（演员/年份/评分/系列/关键词都用） */
+.film-page .chip{
+  display:inline-block;
+  padding:8px 14px;
+  margin: 0 10px 10px 0;
+  border-radius:999px;
+  background: var(--background-secondary-alt);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35), 0 1px 0 rgba(255,255,255,.04) inset;
+}
+.film-page .chip .internal-link{ text-decoration:none; }
+
+/* 兼容老的 kw-badges（让外观与 chip 一致） */
+.film-page .kw-badges .chip,
+.film-page .kw-badges .kw{ /* 旧类名 kw 也给一样的样式 */
+  display:inline-block;
+  padding:8px 14px;
+  margin: 0 10px 10px 0;
+  border-radius:999px;
+  background: var(--background-secondary-alt);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35), 0 1px 0 rgba(255,255,255,.04) inset;
+}
+
+/* 封面一整行 */
+.film-page .film-cover-full{ margin: 6px 0 22px; }
+.film-page .film-cover-full__img{
+  width:100%; height:auto; display:block;
+  border-radius:16px; box-shadow: var(--shadow-l); object-fit:cover;
+}
+
+/* 九宫格更大 */
+.film-page .film-preview .pv-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+}
+.film-page .film-preview .pv-img{
+  width:100%; aspect-ratio: 4/3; object-fit:cover;
+  border-radius:14px; background:var(--background-secondary); box-shadow:var(--shadow-s);
+}
+.film-page .film-preview .empty{ opacity:.7; padding:16px; grid-column:1 / -1;
+  background:var(--background-secondary); border-radius:10px; }
+
+/* 播放按钮与上方留白更大 */
+.film-page .film-play{ margin-top:42px; }
+.film-page .film-play .play-buttons{ display:flex; flex-wrap:wrap; gap:12px; }
+.film-page .btn{
+  display:inline-block; padding:10px 16px; border-radius:12px;
+  background: var(--interactive-accent); color: var(--text-on-accent);
+  text-decoration:none; font-weight:800; box-shadow: var(--shadow-s);
+}
+.film-page .btn:hover{ filter: brightness(1.05); }
+
+/* 让“影片预览”这块更通透 */
+.film-page .film-preview{
+  /* 整块与前后多留一点空白 */
+  margin: 28px 0 26px;
+}
+.film-page .film-preview .sec-title{
+  /* 标题与九宫格拉开；也能微调字距 */
+  margin: 10px 0 16px;
+  letter-spacing: 0.5px;
+}
+/* 九宫格与标题再拉开一点，卡片间距也稍大些 */
+.film-page .film-preview .pv-grid{
+  margin-top: 12px;           /* 标题到底部内容的间距 */
+  gap: 20px;                  /* 九宫格卡片之间的间距（原来是 18px）*/
+}
+
+/* 播放按钮跟前面的内容（九宫格）拉开距离 */
+.film-page .btn-001{
+  margin-top: 24px;           /* 想更松就改成 32px、40px */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 有些主题会给代码块/插件容器额外 margin，这里顺手清一下 */
+.film-page .block-language-meta-bind-button{ margin-top: 0 !important; }
+
+
+
