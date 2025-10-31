@@ -1,4 +1,4 @@
-# 🎬 媒体收集器 (Media Collector)
+# 🎬 Garden of Rose II
 
 自动扫描媒体文件夹，智能识别番号系列文件，解析NFO元数据，并生成美观的Obsidian兼容Markdown笔记。支持完整的媒体库管理和分类展示。
 
@@ -26,10 +26,14 @@
 - Python 3.7+
 - 必需的Python包（见requirements.txt）
 
+请先按照 [配置方法](配置方法.md) 文件配置obsidian设置和MDx配置
+
 ### 安装依赖
+
 ```bash
 pip install -r requirements.txt
 ```
+
 
 ### 运行脚本
 
