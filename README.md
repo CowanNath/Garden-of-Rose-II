@@ -2,6 +2,9 @@
 
 自动扫描媒体文件夹，智能识别番号系列文件，解析NFO元数据，并生成美观的Obsidian兼容Markdown笔记。支持完整的媒体库管理和分类展示。
 
+    本项目灵感来源于某论坛上的一个分享，基于该分享内容再由AI生成。
+    由于是AI生成的内容，如有问题或者想要添加功能，请fork后自行修改，谢谢。
+
 ## ✨ 功能特性
 
 ### 🎯 核心功能
@@ -22,9 +25,6 @@
 
 ## 🚀 快速开始
 
-### 环境要求
-- Python 3.7+
-- 必需的Python包（见requirements.txt）
 
 请先按照 [配置方法](配置方法.md) 文件配置obsidian设置和MDx配置
 
@@ -64,7 +64,7 @@ python media_collector.py --source-dir "/path/to/media" --output-dir "/path/to/o
 ## 📁 项目结构
 
 ```
-media-collector/
+Garden of Rose II/
 ├── 📄 media_collector.py          # 主脚本文件
 ├── 📄 nfo_parser_fixed.py         # NFO文件解析器
 ├── 📄 config.yaml                 # 配置文件
