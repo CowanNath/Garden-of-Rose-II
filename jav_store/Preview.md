@@ -182,7 +182,46 @@ dv.table(
       "🇨🇳" + " " + (p.CN ?? ""),
       "🇯🇵" + " " + (p.JP ?? ""),
       "🪪 " + "[[" + (p.Code ?? "") + "]]",
-      "👰 " + "[[" + (p.Actor ? `${ACTOR_DIR}/${p.Actor}` : "") + "|" + (p.Actor ?? "") + "]]",
+      (() => {
+        if (!p.Actor) return "👰 ";
+
+        // 处理嵌套数组结构：[[["天使亜梦"]], [["平田司"]]]
+        let actorNames = [];
+
+        if (Array.isArray(p.Actor)) {
+          // 扁平化嵌套数组
+          const flattenActors = (arr) => {
+            const result = [];
+            arr.forEach(item => {
+              if (Array.isArray(item)) {
+                result.push(...flattenActors(item));
+              } else if (typeof item === 'string' && item.trim()) {
+                result.push(item.trim());
+              }
+            });
+            return result;
+          };
+
+          actorNames = flattenActors(p.Actor);
+        } else if (typeof p.Actor === 'string') {
+          // 处理字符串格式（兼容性）
+          actorNames = p.Actor.split(',').map(name => name.trim()).filter(Boolean);
+        }
+
+        if (actorNames.length === 0) return "👰 ";
+
+        const actorLinks = actorNames.map(actorName => {
+          const link = document.createElement('a');
+          link.classList.add('internal-link');
+          const actorPath = `${ACTOR_DIR}/${actorName}`;
+          link.setAttribute('href', actorPath);
+          link.setAttribute('data-href', actorPath);
+          link.textContent = actorName;
+          return link.outerHTML;
+        });
+
+        return "👰 " + actorLinks.join(", ");
+      })(),
       "📅 " + "[[" + (p.Year ? `${YEARS_DIR}/${p.Year}` : "") + "|" + (p.Year ?? "") + "]]",
       "🕒 " + (p.Time ?? ""),
       "🌡️ " + "[[" + (p.VideoRank ? `${RANKS_DIR}/${p.VideoRank}` : "") + "|" + (p.VideoRank ?? "") + "]]",
